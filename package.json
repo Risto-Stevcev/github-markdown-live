@@ -1,0 +1,30 @@
+{
+  "name": "github-markdown-live",
+  "version": "0.0.0",
+  "description": "A simple way to render and view your github markdown files locally",
+  "main": "index.js",
+  "bin": "./index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/Risto-Stevcev/github-markdown-live.git"
+  },
+  "keywords": [
+    "github",
+    "markdown",
+    "render",
+    "view",
+    "live",
+    "local",
+    "locally"
+  ],
+  "author": "Risto Stevcev",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5",
+    "yargs": "^4.2.0"
+  }
+}
