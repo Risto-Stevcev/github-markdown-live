@@ -23,13 +23,13 @@ const argv = require('yargs')
                .demand(['f'])
                .argv
 
-const file = path.resolve(__dirname, argv.file)
+const file = path.resolve(argv.file)
 
 let dateString  = date => (date || new Date()).toLocaleTimeString('en-US', { hour12: false })
   , datePadding = ' -- '.repeat(dateString().length / 4)
 
 
-app.use(express.static('public'))
+app.use(express.static(path.resolve(__dirname, 'public')))
 app.get('/', function(req, res){
   res.sendFile('index.html', { root: __dirname })
 })
