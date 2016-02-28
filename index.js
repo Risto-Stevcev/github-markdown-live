@@ -24,8 +24,8 @@ const argv = require('yargs')
 
 const file = path.resolve(__dirname, argv.file)
 
-let dateString  = _ => new Date().toISOString()
-  , datePadding = ' '.repeat((dateString().length - 2) / 2) +'--'+ ' '.repeat((dateString().length - 2)/2)
+let dateString  = date => (date || new Date()).toLocaleTimeString('en-US', { hour12: false })
+  , datePadding = ' -- '.repeat(dateString().length / 4)
 
 
 app.use(express.static('public'))
@@ -70,7 +70,7 @@ let parseMarkdown = (content) => {
     console.info(`[${datePadding }] Request remaining: ${res.headers['x-ratelimit-remaining']}`)
 
     if (rateLimitReset.getTime())
-      console.info(`[${datePadding }] Request reset:     ${rateLimitReset}`)
+      console.info(`[${datePadding }] Request reset:     ${dateString(rateLimitReset)}`)
 
     res.setEncoding('utf8')
     res.on('data', (chunk) => {
