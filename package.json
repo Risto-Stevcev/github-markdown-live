@@ -1,9 +1,9 @@
 {
   "name": "github-markdown-live",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple way to render and view your GitHub markdown files locally",
   "main": "index.js",
-  "bin": "./index.js",
+  "bin": "index.js",
   "scripts": {
     "test": "mocha"
   },

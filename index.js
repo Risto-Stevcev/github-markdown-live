@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict'
 const express = require('express')
     , https   = require('https')
