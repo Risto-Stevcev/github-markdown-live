@@ -7,13 +7,14 @@
 
 Choose a markdown file to watch and then direct your browser to the server url (default is `localhost:3000`). The server will display your markdown file exactly how GitHub would render it, and every time you save your file, the browser will automatically re-render the view without having to hit refresh.
 
-```
-github-markdown-live -p [port] -a [authentication] -f [markdown file]
+```bash
+$ github-markdown-live [-d] [-p [port]] [-a [authentication]] -f [markdown file]
 ```
 
-`port` - The port to use for the server (default: 3000)
-`authentication` - Authenticate your requests using OAuth or Basic authentication ([oauthkey] | [username:password] | [username:oauthkey])
-`markdown file` - The markdown file to watch (required)
+`port` - The port to use for the server (default: 3000)  
+`authentication` - Authenticate your requests using OAuth or Basic authentication ([oauthkey] | [username:password] | [username:oauthkey])  
+`markdown file` - The markdown file to watch (required)  
+`debug` - Prints the GitHub generated markdown to console
 
 ```bash
 $ cd github-project
@@ -35,6 +36,17 @@ The [request limit](https://developer.github.com/v3/#rate-limiting) for the curr
 OAuth is recommended over Basic because you can limit the scope of what can be accessed with the key, and you can always revoke any key you create. You can create an OAuth token [here](https://github.com/settings/tokens/new).
 
 All requests made by this app are sent via `https`, which will protect your credentials if you decide to use `username:password` Basic authentication.
+
+
+## Changelog
+
+- **v1.0.5**
+  - Removes line breaks from the markdown to match the GitHub flavor
+  - Added `-d, --debug` to print the GitHub generated markdown to console
+
+- **v1.0.2**
+  - Initial stable release
+
 
 ## License
 

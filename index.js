@@ -19,6 +19,9 @@ const argv = require('yargs')
                .alias('f', 'file')
                .describe('f', 'Markdown file to watch and render')
 
+               .alias('d', 'debug')
+               .describe('d', 'Debugs the generated output')
+
                .alias('p', 'port')
                .demand(['f'])
                .argv
@@ -78,8 +81,9 @@ let parseMarkdown = (content) => {
       markdown += chunk.toString()
     })
     res.on('end', () => {
+      if (argv.debug) console.log(markdown)
       console.info(`[${datePadding}] Markdown fetched`)
-      io.emit('markdown', markdown)
+      io.emit('markdown', markdown.replace(/(<br>)?<br>/g, '$1'))
     })
   })
 
